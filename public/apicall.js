@@ -44,7 +44,7 @@ savebtn.addEventListener("click", function() {
   });
 
 
-fetch("http://localhost:3000/tweets").then(response => response.json()).then((data) => {
+fetch("https://tweetapi-joshnsw.onrender.com/tweets").then(response => response.json()).then((data) => {
 
   console.log(data)
   const tweetList = document.getElementById("tweetlist");
