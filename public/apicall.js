@@ -13,7 +13,7 @@ let temp_user;
 button.addEventListener("click", function() {
   const inputValue = input.value;
 
-  fetch(`http://localhost:3000/tweet/${inputValue}`, {mode: 'cors'})
+  fetch(`https://tweetapi-joshnsw.onrender.com/tweet/${inputValue}`, {mode: 'cors'})
     .then(response => response.json())
     .then((data) => {
 
@@ -32,7 +32,7 @@ button.addEventListener("click", function() {
 savebtn.addEventListener("click", function() {
 
 
-  fetch("http://localhost:3000/save-tweet", {
+  fetch("https://tweetapi-joshnsw.onrender.com/save-tweet", {
   method: 'POST',
   headers: {
   'Content-Type': 'application/json'
