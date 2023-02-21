@@ -1,0 +1,17 @@
+@import "navbar.css";
+@import "container.css";
+
+
+@import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css";
+
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Gloock&family=Roboto:wght@400;700;900&display=swap');
+
+
+
+body{
+
+
+  background: rgba(236, 225, 225, 0.949);
+
+}

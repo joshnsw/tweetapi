@@ -55,6 +55,7 @@
   app.post("/save-tweet", (req, res) => {
     console.log(req.body)
     const tweet = req.body.tweet;
+    const user = req.body.user;
     // Save the tweet to the db.json file
     fs.readFile('db.json', 'utf-8', (error, data) => {
       if (error) {
@@ -68,7 +69,7 @@
         console.error(error)
       }
       db.tweets = db.tweets || []
-      db.tweets.push({ "tweet": tweet });
+      db.tweets.push({ "tweet": tweet , "user": user });
       fs.writeFile('db.json', JSON.stringify(db), 'utf-8', (error) => {
         if (error) {
           console.error(error)
@@ -80,5 +81,5 @@
 
   app.listen(port, () => {
     console.log("Server listening on port 3000")
-    console.log(key)
+
     ;})

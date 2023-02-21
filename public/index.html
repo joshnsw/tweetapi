@@ -5,25 +5,55 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <link rel="stylesheet" href="/css/index.css">
 </head>
 <body>
-<h1 id="test">chirpVault</h1>
-
-<p>Enter the ID of the tweet you want to save!</p>
-
-  <label for="input">Enter the ID:</label>
-  <input id ="input" type="text" name="input_text">
-  <button id = "button">Get Your Tweet!</button>
-  <button id = "save">Save Tweet</button>
+  <nav class="navbar bg-info text-light shadow-sm">
+    <div class="container-fluid navtxt-font">
+      <h1>Chirp-Vault <i class="fas fa-dove"></i></h1>
 
 
-<p>Here is the content of your tweet:</p>
-<p id="result"></p>
+      <h4>Save your favourite tweets!</h4>
+    </div>
+  </nav>
 
 
-<p >Saved tweets:</p>
-<ul id="tweetlist"></ul>
+<div class="container  c-content">
+    <div class="row">
+
+    <div class="col-5 pt-3 card  shadow-sm modify-margin">
+      <div class="col d-flex justify-content-center flex-column align-items-center">
+
+        <p>Enter the ID of the tweet you want to save!</p>
+
+
+          <span id="basic-addon1">ID <input id ="input" type="text" name="input_text"></span>
+
+
+
+
+
+          <button id = "button" class="btn btn-info mt-3 mb-3 px-3">Get Tweet!</button>
+
+
+
+        <p>Tweet Details:</p>
+        <p id="result">No tweet searched yet..</p>
+        <button id = "save" class="btn btn-info mt-3 mb-3 py-2">Save Tweet!</button>
+        </div>
+      </div>
+
+
+  <div class="col  mt-3">
+  <h2 class="text-center">Tweet Collection <i class="fas fa-solid fa-folder"></i></h2>
+  <ul id="tweetlist"></ul>
+
+  </div>
+
+
+  </div>
+</div>
 
 
 
@@ -31,6 +61,6 @@
    <script src="apicall.js">
 
   </script>
-
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 </body>
 </html>

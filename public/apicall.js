@@ -8,6 +8,8 @@ const savebtn =  document.getElementById("save");
 
 let temp_tweet;
 
+let temp_user;
+
 button.addEventListener("click", function() {
   const inputValue = input.value;
 
@@ -17,6 +19,7 @@ button.addEventListener("click", function() {
 
       const result = document.getElementById("result")
       temp_tweet = data.data.text
+      temp_user = data.includes.users[0].username
       result.innerHTML = data.data.text
       console.log(data)
     })
@@ -34,7 +37,7 @@ savebtn.addEventListener("click", function() {
   headers: {
   'Content-Type': 'application/json'
   },
-  body: JSON.stringify({ "tweet": temp_tweet })
+  body: JSON.stringify({ "tweet": temp_tweet, "user": temp_user })
   })
   .then(response => response.json())
   .then((data) => {
@@ -51,7 +54,7 @@ fetch("https://tweetapi-joshnsw.onrender.com/tweets").then(response => response.
   const tweets =  data.tweets;
   tweets.forEach( (tweet) => {
 
-    tweetList.innerHTML += `<li>${tweet.tweet}</li>`
+    tweetList.innerHTML += `<div class="card p-2 mb-2 shadow-sm">"${tweet.tweet}" - ${tweet.user} </div>`
 
   })
 
