@@ -11,7 +11,7 @@ let temp_tweet;
 
 let temp_user;
 
-// let url = "http://localhost:3000"
+// const url = "http://localhost:3000"
 
 const url  = "https://tweetapi-joshnsw.onrender.com"
 
