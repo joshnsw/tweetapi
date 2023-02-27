@@ -115,5 +115,6 @@
 
   app.listen(port, () => {
     console.log("Server listening on port 3000")
-
+    console.log(process.env.apikey)
+    console.log(process.env.appSecret)
     ;})
