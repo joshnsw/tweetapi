@@ -3,6 +3,8 @@
   const cors = require('cors')
   const app = express();
 
+  const { v4: uuidv4 } = require('uuid');
+
   const bodyParser = require("body-parser");
   const fs = require('fs');
 
@@ -20,15 +22,19 @@
 
   const key = process.env.apikey
 
+  const secret = process.env.appSecret
 
+  const atoken = process.env.atoken
+
+  const asecret = process.env.asecret
 
   app.use(express.static(path.join(__dirname, 'public')));
 
   const client = new TwitterApi({
     appKey: key,
     appSecret: secret,
-    accessToken: '1642492008-uJR6zico2ffvbhuUNhayvUfoRldx6zwLubNYwbV',
-    accessSecret: 'aEI27W6g5rR5fUJQEPlTo9nYUBaSmTbVXHUqENIj6cXic',
+    accessToken: atoken,
+    accessSecret: asecret,
   });
 
   const v2Client = client.v2;
@@ -40,6 +46,32 @@
 
     res.send(testTweet);
   });
+
+
+
+  app.delete('/tweet/:id', (req, res) => {
+    const tweetId = req.params.id;
+    fs.readFile('db.json', 'utf8', (err, data) => {
+      if (err) {
+        res.status(500).send(err);
+      } else {
+        let db = {};
+        try {
+          db = JSON.parse(data);
+        } catch (error) {
+          console.error(error);
+        }
+        db.tweets = db.tweets.filter((tweet) => tweet.id !== tweetId);
+        fs.writeFile('db.json', JSON.stringify(db), 'utf-8', (error) => {
+          if (error) {
+            console.error(error);
+          }
+        });
+        res.json({ message: `Deleted tweet with ID ${tweetId}` });
+      }
+    });
+  });
+
 
 
   app.get('/tweets', (req, res) => {
@@ -70,7 +102,8 @@
         console.error(error)
       }
       db.tweets = db.tweets || []
-      db.tweets.push({ "tweet": tweet , "user": user });
+      const id = uuidv4();
+      db.tweets.push({ "tweet": tweet , "user": user , "id": id});
       fs.writeFile('db.json', JSON.stringify(db), 'utf-8', (error) => {
         if (error) {
           console.error(error)

@@ -1,8 +1,9 @@
 
 const input = document.getElementById("input");
 
+const tweetList = document.getElementById("tweetlist");
 
-
+const getTweet = document.getElementById("gettweet");
 
 const savebtn =  document.getElementById("save");
 
@@ -10,10 +11,16 @@ let temp_tweet;
 
 let temp_user;
 
-button.addEventListener("click", function() {
+// let url = "http://localhost:3000"
+
+const url  = "https://tweetapi-joshnsw.onrender.com"
+
+
+
+getTweet.addEventListener("click", function() {
   const inputValue = input.value;
 
-  fetch(`https://tweetapi-joshnsw.onrender.com/tweet/${inputValue}`, {mode: 'cors'})
+  fetch(`${url}/tweet/${inputValue}`, {mode: 'cors'})
     .then(response => response.json())
     .then((data) => {
 
@@ -28,11 +35,28 @@ button.addEventListener("click", function() {
 
 });
 
+tweetList.addEventListener("click", (event) => {
+  if (event.target.matches("#deletetweet")) {
+    const tweetId = event.target.dataset.id;
+
+    fetch(`${url}/tweet/${tweetId}`, {
+      method: 'DELETE',
+    })
+      .then(response => response.json())
+      .then(data => {
+        console.log(data.message);
+        // Remove tweet from UI
+        event.target.parentNode.parentNode.remove();
+      })
+      .catch(error => console.error(error));
+  }
+});
+
 
 savebtn.addEventListener("click", function() {
 
 
-  fetch("https://tweetapi-joshnsw.onrender.com/save-tweet", {
+  fetch(`${url}/save-tweet`, {
   method: 'POST',
   headers: {
   'Content-Type': 'application/json'
@@ -42,19 +66,45 @@ savebtn.addEventListener("click", function() {
   .then(response => response.json())
   .then((data) => {
   console.log(data)
+  tweetList.innerHTML = ''
+  refreshTweets();
   })
   .catch(error => console.error(error));
   });
 
 
-fetch("https://tweetapi-joshnsw.onrender.com/tweets").then(response => response.json()).then((data) => {
+
+// get latest tweets
+
+const refreshTweets  = function() {
+
+  fetch(`${url}/tweets`).then(response => response.json()).then((data) => {
+
+    console.log(data)
+    const tweetList = document.getElementById("tweetlist");
+    const tweets =  data.tweets;
+    tweets.forEach( (tweet) => {
+
+      tweetList.innerHTML += `  <div ><div class="card p-2 mb-2 shadow-sm col-12  ">"${tweet.tweet}" - ${tweet.user} <button id = "deletetweet" class="btn btn-info btn-sm mt-3 mb-3 px-3 col-2" data-id="${tweet.id}">X</button></div> </div>`
+
+    })
+
+
+  }).catch(error => console.error(error));
+
+}
+
+
+
+
+fetch(`${url}/tweets`).then(response => response.json()).then((data) => {
 
   console.log(data)
   const tweetList = document.getElementById("tweetlist");
   const tweets =  data.tweets;
   tweets.forEach( (tweet) => {
 
-    tweetList.innerHTML += `<div class="card p-2 mb-2 shadow-sm">"${tweet.tweet}" - ${tweet.user} </div>`
+    tweetList.innerHTML += `  <div ><div class="card p-2 mb-2 shadow-sm col-12  ">"${tweet.tweet}" - ${tweet.user} <button id = "deletetweet" class="btn btn-info btn-sm mt-3 mb-3 px-3 col-2" data-id="${tweet.id}">X</button></div> </div>`
 
   })
 
