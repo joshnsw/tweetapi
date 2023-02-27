@@ -31,11 +31,14 @@
   app.use(express.static(path.join(__dirname, 'public')));
 
   const client = new TwitterApi({
-    appKey: 'EOiXQGClVh2SIeigs214CpFG6',
-    appSecret: 'pKRTj0B7WC6Pr3E42l2QI11naokzqs5uGeUgx3CxMkESBJEiN7',
-    accessToken: '1642492008-nV6u08uArI1UB42s5pfbIbJoihSwiZYeXuyPv4U',
-    accessSecret: 'sHOWIal9UsxNzvEA8FNHVaPZu9lz2Ja6Jfc3IMnQgSyE2',
+    appKey: key,
+    appSecret: secret,
+    accessToken: atoken,
+    accessSecret: asecret
   });
+
+
+
 
   const v2Client = client.v2;
 
@@ -115,6 +118,6 @@
 
   app.listen(port, () => {
     console.log("Server listening on port 3000")
-    console.log(process.env.apikey)
+
     console.log(process.env.appSecret)
     ;})
