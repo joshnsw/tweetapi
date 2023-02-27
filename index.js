@@ -31,10 +31,10 @@
   app.use(express.static(path.join(__dirname, 'public')));
 
   const client = new TwitterApi({
-    appKey: process.env.apikey,
-    appSecret: process.env.appSecret,
-    accessToken: process.env.atoken,
-    accessSecret: process.env.asecret,
+    appKey: key,
+    appSecret: secret,
+    accessToken: atoken,
+    accessSecret: asecret,
   });
 
   const v2Client = client.v2;
