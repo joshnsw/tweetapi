@@ -11,15 +11,15 @@ let temp_tweet;
 
 let temp_user;
 
-// const url = "http://localhost:3000"
+const url = "http://localhost:3000"
 
-const url  = "https://tweetapi-joshnsw.onrender.com"
+// const url  = "https://tweetapi-joshnsw.onrender.com"
 
 
 getTweet.addEventListener("click", function() {
   const inputValue = input.value;
 
-  fetch(`${url}/tweet/${inputValue}`, {mode: 'cors'})
+  fetch(`${url}/tweet/${inputValue}`)
     .then(response => response.json())
     .then((data) => {
 

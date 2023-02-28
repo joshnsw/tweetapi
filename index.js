@@ -38,14 +38,17 @@
     appKey: process.env.TWEET_KEY,
     appSecret: process.env.APP_SECRET,
     accessToken: process.env.A_TOKEN,
-    accessSecret: process.env.A_SECRET
+    accessSecret: "HTTUGFnRF3qQeoO6TKQStt7rJl8QV566YSasZarwx0HFf"
+
   });
 
+
+  console.log("these are my client keys")
   console.log(client.appKey);
   console.log(client.appSecret);
   console.log(client.accessToken);
-
   console.log(client.accessSecret);
+  console.log(client.test);
 
 
   const v2Client = client.v2;
