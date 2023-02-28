@@ -13,7 +13,7 @@ let temp_user;
 
 // const url = "http://localhost:3000"
 
-const url  = "https://tweetapi-joshnsw.onrender.com"
+const url  = "https://chirpvault-joshnsw.onrender.com"
 
 
 getTweet.addEventListener("click", function() {

@@ -20,14 +20,14 @@
 
   app.use(cors())
 
-  const key = "flZfQTFR5on8aFevS21Q8AvOZ"
+  const key = process.env.TWEET_KEY
 
-  const secret = "g9bxjFtJhfUPkrB2pYAMyZkTozXruF8TeZSxdUYYWxKX70w70s"
+  const secret = process.env.APP_SECRET
 
-  const atoken = "1642492008-OJgVSWuLSxbQ8QErTgN1nAvmtFCO9ISuYsn7pvP"
+  const atoken = process.env.A_TOKEN
 
 
-  const asecret = "tZ8wjKj0alJulQnN4vyRgzxNdke1n335ym9sNVSreGjny"
+  const asecret = process.env.A_SECRET
 
   app.use(express.static(path.join(__dirname, 'public')));
 
@@ -119,8 +119,8 @@
 
   app.listen(port, () => {
     console.log(`Server listening on port ${process.env.PORT}`)
-    console.log(process.env.apikey)
-    console.log(process.env.appSecret)
-    console.log(process.env.atoken)
-    console.log(process.env.asecret)
+    console.log(process.env.TWEET_KEY)
+    console.log(process.env.APP_SECRET)
+    console.log(process.env.A_TOKEN)
+    console.log(process.env.A_SECRET)
     ;})
