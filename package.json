@@ -28,9 +28,8 @@
 
   "scripts": {
 
-    "start": "serve"
+    "start": "node index.js"
 
   }
 
 }
-
