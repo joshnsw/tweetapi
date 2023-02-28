@@ -13,7 +13,7 @@ let temp_user;
 
 // const url = "http://localhost:3000"
 
-const url  = "https://chirpvault.herokuapp.com/"
+const url  = "https://chirpvault.herokuapp.com"
 
 
 getTweet.addEventListener("click", function() {
