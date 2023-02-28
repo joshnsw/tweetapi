@@ -41,7 +41,11 @@
     accessSecret: process.env.A_SECRET
   });
 
+  console.log(client.appKey);
+  console.log(client.appSecret);
+  console.log(client.accessToken);
 
+  console.log(client.accessSecret);
 
 
   const v2Client = client.v2;
