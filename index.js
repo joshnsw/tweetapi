@@ -34,8 +34,8 @@
   const client = new TwitterApi({
     appKey: key,
     appSecret: secret,
-    accessToken: atoken,
-    accessSecret: asecret
+    accessToken: "1642492008-diK2ClMQjJioO3OEo1uZ8ZrmEfo19HVTbvpY7cb",
+    accessSecret: "HTTUGFnRF3qQeoO6TKQStt7rJl8QV566YSasZarwx0HFf"
   });
 
 
