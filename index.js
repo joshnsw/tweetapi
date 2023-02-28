@@ -123,4 +123,5 @@
     console.log(process.env.APP_SECRET)
     console.log(process.env.A_TOKEN)
     console.log(process.env.A_SECRET)
+    console.log(process.env.TEST)
     ;})
