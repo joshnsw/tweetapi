@@ -20,13 +20,14 @@
 
   app.use(cors())
 
-  const key = process.env.apikey
+  const key = "flZfQTFR5on8aFevS21Q8AvOZ"
 
-  const secret = process.env.appSecret
+  const secret = "g9bxjFtJhfUPkrB2pYAMyZkTozXruF8TeZSxdUYYWxKX70w70s"
 
-  const atoken = process.env.atoken
+  const atoken = "1642492008-OJgVSWuLSxbQ8QErTgN1nAvmtFCO9ISuYsn7pvP"
 
-  const asecret = process.env.asecret
+
+  const asecret = "tZ8wjKj0alJulQnN4vyRgzxNdke1n335ym9sNVSreGjny"
 
   app.use(express.static(path.join(__dirname, 'public')));
 
