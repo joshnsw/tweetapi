@@ -1,3 +1,6 @@
+  require('dotenv').config();
+
+
   const express = require("express");
   const {TwitterApi} = require("twitter-api-v2");
   const cors = require('cors')
@@ -16,7 +19,7 @@
 
   const port = process.env.PORT || 3000
 
-  require('dotenv').config();
+
 
   app.use(cors())
 
