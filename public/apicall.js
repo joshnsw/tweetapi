@@ -16,7 +16,6 @@ let temp_user;
 const url  = "https://tweetapi-joshnsw.onrender.com"
 
 
-
 getTweet.addEventListener("click", function() {
   const inputValue = input.value;
 
