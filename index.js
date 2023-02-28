@@ -23,32 +23,26 @@
 
   app.use(cors())
 
-  // const key = process.env.TWEET_KEY
+  const key = process.env.TWEET_KEY
 
-  // const secret = process.env.APP_SECRET
+  const secret = process.env.APP_SECRET
 
-  // const atoken = process.env.A_TOKEN
+  const atoken = process.env.A_TOKEN
 
 
-  // const asecret = process.env.A_SECRET
+  const asecret = process.env.A_SECRET
 
   app.use(express.static(path.join(__dirname, 'public')));
 
   const client = new TwitterApi({
-    appKey: process.env.TWEET_KEY,
-    appSecret: process.env.APP_SECRET,
-    accessToken: process.env.A_TOKEN,
-    accessSecret: "HTTUGFnRF3qQeoO6TKQStt7rJl8QV566YSasZarwx0HFf"
+    appKey: key,
+    appSecret: secret,
+    accessToken: atoken,
+    accessSecret: asecret
 
   });
 
 
-  console.log("these are my client keys")
-  console.log(client.appKey);
-  console.log(client.appSecret);
-  console.log(client.accessToken);
-  console.log(client.accessSecret);
-  console.log(client.test);
 
 
   const v2Client = client.v2;
