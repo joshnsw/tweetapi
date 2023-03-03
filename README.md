@@ -9,7 +9,7 @@ Chirp-Vault allows you to save tweets in a collection.
 Step 1:
 
 Get the id of a single tweet 
-https://twitter.com/CNN/status/**1631580247635247110**
+Example : https://twitter.com/CNN/status/1631580247635247110
 
 
 Step 2:
